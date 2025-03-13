@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><title data-next-head=""></title><noscript data-n-css=""></noscript><script defer="" noModule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/_next/static/chunks/webpack-5432bf10c93561a8.js" defer=""></script><script src="/_next/static/chunks/framework-b8ed9b642a1d405a.js" defer=""></script><script src="/_next/static/chunks/main-3ff790f6e521ad68.js" defer=""></script><script src="/_next/static/chunks/pages/_app-192a2aa6e59bbef8.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bid%5D-25734b028fbb1087.js" defer=""></script><script src="/_next/static/uKvMe5Uxow0IOQ4y_bMsQ/_buildManifest.js" defer=""></script><script src="/_next/static/uKvMe5Uxow0IOQ4y_bMsQ/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div><h1></h1><div></div><div><h1>Entity Component System(ECS)</h1>
+<p>참고</p>
+<p>https://m.blog.naver.com/kiseop91/221855589754</p>
+<h1>Filament의 ECS</h1>
+<h2>Entity</h2>
+<h2>Component</h2>
+<ul>
+<li>high-level APIs 의 component 는 engine level component 의 고정된 조합이라고 보면 됩니다. 고정된 노드 구조의 data structure 를 제공하여 app 개발자의 사용성을 증대 시킵니다. 고정된 노드 구조(상송형)로 APIs 에서 보이지만, engine level 에서는 ECS 로 구현되어 있습니다.</li>
+<li>VzAsset : entity 의 root 가 아닙니다. 현재 버전에서는 GLTF 파일 로드 후, 소유권을 이전하지 않은 asset 들 (예. 애니메이션, skeleton 등), 을 포함하고 있는 component 입니다. 추후, 해당 asset 의 모든 세부 component 들의 소유권을 APIs 로 이전할 예정이며, 이 경우, VzAsset 은 없어질 수 있습니다.  즉, 임시 버전으로 보면 됩니다.</li>
+</ul>
+<h2>System</h2>
+<p>System 은 components 들을 input 으로 받아 이들을 수정하거나 새로운 components를 생성, 또는 image or file 로 output 하는 함수들입니다.</p>
+<p>ECS 에서 System 에 해당 하는 것은 현재</p>
+<ul>
+<li>VzRenderer::Render</li>
+<li>LoadFileIntoAsset</li>
+<li>VzAsset::Animation...</li>
+<li>VzCamera::Controller... (이건 system 으로 보기는 어렵고 헬퍼?!)</li>
+</ul>
+<p>밖에 없습니다.
+System 은 components 들을 input 으로 받아 이들을 수정하거나 새로운 components 를 생성, 또는 image or file 로 output 하는 함수들입니다.</p>
+<p>H API는 ECS 지우기</p>
+</div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"Entity Component System(ECS)","contentHtml":"\u003ch1\u003eEntity Component System(ECS)\u003c/h1\u003e\n\u003cp\u003e참고\u003c/p\u003e\n\u003cp\u003ehttps://m.blog.naver.com/kiseop91/221855589754\u003c/p\u003e\n\u003ch1\u003eFilament의 ECS\u003c/h1\u003e\n\u003ch2\u003eEntity\u003c/h2\u003e\n\u003ch2\u003eComponent\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003ehigh-level APIs 의 component 는 engine level component 의 고정된 조합이라고 보면 됩니다. 고정된 노드 구조의 data structure 를 제공하여 app 개발자의 사용성을 증대 시킵니다. 고정된 노드 구조(상송형)로 APIs 에서 보이지만, engine level 에서는 ECS 로 구현되어 있습니다.\u003c/li\u003e\n\u003cli\u003eVzAsset : entity 의 root 가 아닙니다. 현재 버전에서는 GLTF 파일 로드 후, 소유권을 이전하지 않은 asset 들 (예. 애니메이션, skeleton 등), 을 포함하고 있는 component 입니다. 추후, 해당 asset 의 모든 세부 component 들의 소유권을 APIs 로 이전할 예정이며, 이 경우, VzAsset 은 없어질 수 있습니다.  즉, 임시 버전으로 보면 됩니다.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eSystem\u003c/h2\u003e\n\u003cp\u003eSystem 은 components 들을 input 으로 받아 이들을 수정하거나 새로운 components를 생성, 또는 image or file 로 output 하는 함수들입니다.\u003c/p\u003e\n\u003cp\u003eECS 에서 System 에 해당 하는 것은 현재\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eVzRenderer::Render\u003c/li\u003e\n\u003cli\u003eLoadFileIntoAsset\u003c/li\u003e\n\u003cli\u003eVzAsset::Animation...\u003c/li\u003e\n\u003cli\u003eVzCamera::Controller... (이건 system 으로 보기는 어렵고 헬퍼?!)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e밖에 없습니다.\nSystem 은 components 들을 input 으로 받아 이들을 수정하거나 새로운 components 를 생성, 또는 image or file 로 output 하는 함수들입니다.\u003c/p\u003e\n\u003cp\u003eH API는 ECS 지우기\u003c/p\u003e\n"}},"__N_SSG":true},"page":"/posts/[id]","query":{"id":"Entity Component System(ECS)"},"buildId":"uKvMe5Uxow0IOQ4y_bMsQ","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
