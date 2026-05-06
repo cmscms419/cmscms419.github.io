@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>그젓이는_사람</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;700&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --white: #ffffff;
@@ -19,7 +28,9 @@
       --sans: 'IBM Plex Sans KR', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--white);
@@ -31,35 +42,67 @@
 
     /* ── Nav ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.25rem 5rem;
       background: var(--white);
       border-bottom: 1px solid var(--black);
     }
+
     .nav-logo {
-      font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
-      color: var(--black); text-decoration: none; letter-spacing: 0.05em;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
     .nav-links a {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--gray-dark);
-      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--gray-dark);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       transition: color 0.15s;
     }
-    .nav-links a:hover { color: var(--black); }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
 
     /* ── Hero ── */
     #hero {
       min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       padding: 8rem 5rem 5rem;
       border-bottom: 1px solid var(--black);
     }
+
     .hero-label {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--gray-dark);
-      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
     }
+
     .hero-name {
       font-family: var(--sans);
       font-size: clamp(4rem, 10vw, 9rem);
@@ -68,6 +111,7 @@
       letter-spacing: -0.03em;
       margin-bottom: 3rem;
     }
+
     .hero-name .en {
       display: block;
       font-weight: 300;
@@ -76,144 +120,426 @@
       letter-spacing: 0.02em;
       margin-top: 0.5rem;
     }
+
     .hero-bottom {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      flex-wrap: wrap; gap: 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
+
     .hero-desc {
-      max-width: 480px; color: var(--gray-dark); font-size: 0.95rem; line-height: 1.9;
+      max-width: 480px;
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+      line-height: 1.9;
     }
-    .hero-desc strong { color: var(--black); font-weight: 700; }
+
+    .hero-desc strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
     .hero-status {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-family: var(--mono); font-size: 0.72rem; color: var(--gray-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
     }
-    .status-dot { width: 7px; height: 7px; background: var(--black); border-radius: 50%; }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--black);
+      border-radius: 50%;
+    }
 
     /* ── Section Commons ── */
-    section { padding: 6rem 5rem; border-bottom: 1px solid var(--black); }
-    .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; }
-    .section-num { font-family: var(--mono); font-size: 0.72rem; color: var(--gray-mid); }
-    .section-title { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; }
+    section {
+      padding: 6rem 5rem;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-mid);
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
     /* ── About ── */
-    #about { background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .about-text p { color: var(--gray-dark); line-height: 2; margin-bottom: 1.2rem; }
-    .about-text p strong { color: var(--black); font-weight: 700; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--black); border-left: 1px solid var(--black); }
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--gray-dark);
+      line-height: 2;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--black);
+      border-left: 1px solid var(--black);
+    }
+
     .stat-card {
       padding: 2rem 1.5rem;
       border-bottom: 1px solid var(--black);
       border-right: 1px solid var(--black);
     }
-    .stat-num { font-size: 2.8rem; font-weight: 700; line-height: 1; margin-bottom: 0.4rem; }
-    .stat-label { font-family: var(--mono); font-size: 0.7rem; color: var(--gray-dark); letter-spacing: 0.05em; }
+
+    .stat-num {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.05em;
+    }
 
     /* ── Skills ── */
-    #skills { background: var(--gray-light); }
-    .skills-table { width: 100%; border-collapse: collapse; }
-    .skills-table tr { border-bottom: 1px solid var(--black); }
-    .skills-table tr:first-child { border-top: 1px solid var(--black); }
-    .skills-table td { padding: 1.25rem 0; vertical-align: top; }
+    #skills {
+      background: var(--gray-light);
+    }
+
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .skills-table tr:first-child {
+      border-top: 1px solid var(--black);
+    }
+
+    .skills-table td {
+      padding: 1.25rem 0;
+      vertical-align: top;
+    }
+
     .skills-table td:first-child {
-      font-family: var(--mono); font-size: 0.72rem; color: var(--gray-dark);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      width: 220px; padding-right: 2rem; padding-top: 1.4rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: 220px;
+      padding-right: 2rem;
+      padding-top: 1.4rem;
     }
-    .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
     .skill-item {
-      font-size: 0.88rem; padding: 0.3rem 0.8rem;
-      border: 1px solid var(--black); background: var(--white);
+      font-size: 0.88rem;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--black);
+      background: var(--white);
     }
-    .skill-item.bold { font-weight: 700; background: var(--black); color: var(--white); }
+
+    .skill-item.bold {
+      font-weight: 700;
+      background: var(--black);
+      color: var(--white);
+    }
 
     /* ── Projects ── */
-    #projects { background: var(--white); }
-    .project-item { border-top: 1px solid var(--black); padding: 3rem 0; }
-    .project-item:last-child { border-bottom: 1px solid var(--black); }
-    .project-grid { display: grid; grid-template-columns: 2fr 3fr 2fr; gap: 4rem; align-items: start; }
-    .project-meta { padding-top: 0.25rem; }
-    .project-num { font-family: var(--mono); font-size: 0.7rem; color: var(--gray-mid); margin-bottom: 0.5rem; }
-    .project-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-    .project-lang {
-      display: inline-block; font-family: var(--mono); font-size: 0.68rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border: 1px solid var(--black); padding: 0.2rem 0.6rem; margin-top: 0.5rem;
+    #projects {
+      background: var(--white);
     }
-    .project-desc { color: var(--gray-dark); line-height: 1.9; font-size: 0.9rem; }
-    .project-desc li { margin-left: 1.2rem; margin-bottom: 0.4rem; }
-    .project-desc li strong { color: var(--black); font-weight: 700; }
+
+    .project-item {
+      border-top: 1px solid var(--black);
+      padding: 3rem 0;
+    }
+
+    .project-item:last-child {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .project-meta {
+      padding-top: 0.25rem;
+    }
+
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gray-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-lang {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-desc {
+      color: var(--gray-dark);
+      line-height: 1.9;
+      font-size: 0.9rem;
+    }
+
+    .project-desc li {
+      margin-left: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc li strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
     .project-aside {}
-    .project-stack { margin-bottom: 1.5rem; }
-    .project-stack-label { font-family: var(--mono); font-size: 0.68rem; color: var(--gray-dark); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
-    .stack-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .stack-tag { font-family: var(--mono); font-size: 0.72rem; padding: 0.2rem 0.55rem; border: 1px solid var(--gray-mid); color: var(--gray-dark); }
-    .project-links { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .project-stack {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-stack-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .stack-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--gray-mid);
+      color: var(--gray-dark);
+    }
+
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
     .project-link {
-      font-family: var(--mono); font-size: 0.75rem; color: var(--black);
-      text-decoration: none; letter-spacing: 0.05em;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid var(--gray-mid); padding-bottom: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--gray-mid);
+      padding-bottom: 0.4rem;
       transition: border-color 0.15s;
     }
-    .project-link:hover { border-color: var(--black); }
+
+    .project-link:hover {
+      border-color: var(--black);
+    }
 
     /* ── Contact ── */
-    #contact { background: var(--black); color: var(--white); border-bottom: none; }
-    #contact .section-num { color: #444; }
-    #contact .section-title { color: var(--white); }
+    #contact {
+      background: var(--black);
+      color: var(--white);
+      border-bottom: none;
+    }
+
+    #contact .section-num {
+      color: #444;
+    }
+
+    #contact .section-title {
+      color: var(--white);
+    }
+
     .contact-email {
       display: block;
       font-size: clamp(1.8rem, 4vw, 3.5rem);
-      font-weight: 700; letter-spacing: -0.02em;
-      color: var(--white); text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
       border-bottom: 2px solid var(--white);
-      padding-bottom: 0.5rem; margin-bottom: 4rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 4rem;
       transition: opacity 0.15s;
     }
-    .contact-email:hover { opacity: 0.6; }
-    .contact-links { display: flex; gap: 0; border-top: 1px solid #333; }
+
+    .contact-email:hover {
+      opacity: 0.6;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid #333;
+    }
+
     .contact-link {
-      flex: 1; padding: 1.25rem 0;
-      font-family: var(--mono); font-size: 0.75rem;
-      color: #aaaaaa; text-decoration: none;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      flex: 1;
+      padding: 1.25rem 0;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: #aaaaaa;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       border-right: 1px solid #333;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.25rem 1.5rem;
       transition: color 0.15s, background 0.15s;
     }
-    .contact-link:last-child { border-right: none; }
-    .contact-link:hover { color: var(--white); background: #1a1a1a; }
+
+    .contact-link:last-child {
+      border-right: none;
+    }
+
+    .contact-link:hover {
+      color: var(--white);
+      background: #1a1a1a;
+    }
 
     /* ── Footer ── */
     footer {
-      background: var(--black); color: #444;
+      background: var(--black);
+      color: #444;
       padding: 1.5rem 5rem;
-      display: flex; justify-content: space-between;
-      font-family: var(--mono); font-size: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.7rem;
       border-top: 1px solid #222;
     }
 
     /* ── Reveal ── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      section, #hero { padding: 4rem 1.5rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .project-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .skills-table td:first-child { width: 140px; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; }
-      .contact-links { flex-direction: column; }
-      .contact-link { border-right: none; border-bottom: 1px solid #333; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section,
+      #hero {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .skills-table td:first-child {
+        width: 140px;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .contact-link {
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -254,27 +580,14 @@
     <div class="about-grid">
       <div class="about-text reveal">
         <p>안녕하세요, <strong>채민석</strong>입니다.</p>
-        <p><strong>Vulkan</strong>으로 PBR/IBL 렌더링 파이프라인을 직접 구현하고, <strong>WebGPU Compute Shader</strong>로 실시간 3D Gaussian Splatting 뷰어를 만들었습니다.</p>
-        <p>저수준 GPU API를 두려워하지 않고, 렌더링의 원리를 코드로 이해하는 것을 즐깁니다. <strong>Verlet Integration</strong> 기반 옷감 시뮬레이션부터 최신 논문 기술 구현까지, 배운 것을 직접 만들어보는 스타일입니다.</p>
+        <p><strong>Vulkan</strong>으로 PBR/IBL 렌더링 파이프라인을 직접 구현하고, <strong>WebGPU Compute Shader</strong>로 실시간 3D Gaussian
+          Splatting 뷰어를 만들었습니다.</p>
+        <p>저수준 GPU API를 두려워하지 않고, 렌더링의 원리를 코드로 이해하는 것을 즐깁니다. <strong>Verlet Integration</strong> 기반 옷감 시뮬레이션부터 최신 논문 기술
+          구현까지, 배운 것을 직접 만들어보는 스타일입니다.</p>
         <p>결과물은 YouTube, GitHub로 공유합니다.</p>
       </div>
-      <div class="about-stats reveal">
-        <div class="stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">그래픽스 프로젝트</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">169</div>
-          <div class="stat-label">Commits (Vulkan)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">2</div>
-          <div class="stat-label">라이브 데모</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">∞</div>
-          <div class="stat-label">렌더링한 픽셀</div>
-        </div>
+      <div">
+        <img src="second.gif" width="100%" alt="Vulkan 데모" style="border: 1px solid #000;" />
       </div>
     </div>
   </section>
@@ -298,15 +611,15 @@
           </div>
         </td>
       </tr>
-        <td>Language</td>
-        <td>
-          <div class="skill-list">
-            <span class="skill-item bold">C/C++</span>
-            <span class="skill-item">TypeScript</span>
-            <span class="skill-item">JavaScript</span>
-            <span class="skill-item">Python</span>
-          </div>
-        </td>
+      <td>Language</td>
+      <td>
+        <div class="skill-list">
+          <span class="skill-item bold">C/C++</span>
+          <span class="skill-item">TypeScript</span>
+          <span class="skill-item">JavaScript</span>
+          <span class="skill-item">Python</span>
+        </div>
+      </td>
       </tr>
     </table>
   </section>
@@ -346,7 +659,10 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/cmscms419/vulkanMakeSomething" target="_blank" class="project-link">GitHub <span>↗</span></a>
+            <a href="https://github.com/cmscms419/vulkanMakeSomething" target="_blank" class="project-link">GitHub
+              <span>↗</span></a>
+            <a href="https://www.youtube.com/watch?v=k0h5K-wnjUs" target="_blank" class="project-link">YouTube 데모
+              <span>↗</span></a>
           </div>
         </div>
       </div>
@@ -381,8 +697,10 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/cmscms419/gsViewer" target="_blank" class="project-link">GitHub <span>↗</span></a>
-            <a href="https://cmscms419-gsviewer.vercel.app/" target="_blank" class="project-link">Live Demo <span>↗</span></a>
+            <a href="https://github.com/cmscms419/gsViewer" target="_blank" class="project-link">GitHub
+              <span>↗</span></a>
+            <a href="https://cmscms419-gsviewer.vercel.app/" target="_blank" class="project-link">Live Demo
+              <span>↗</span></a>
           </div>
         </div>
       </div>
@@ -414,8 +732,10 @@
             </div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/cmscms419/Cloth_simulation" target="_blank" class="project-link">GitHub <span>↗</span></a>
-            <a href="https://www.youtube.com/watch?v=gIBYzETzzbA" target="_blank" class="project-link">YouTube 데모 <span>↗</span></a>
+            <a href="https://github.com/cmscms419/Cloth_simulation" target="_blank" class="project-link">GitHub
+              <span>↗</span></a>
+            <a href="https://www.youtube.com/watch?v=gIBYzETzzbA" target="_blank" class="project-link">YouTube 데모
+              <span>↗</span></a>
           </div>
         </div>
       </div>
@@ -431,7 +751,8 @@
     <a class="contact-email reveal">alstjr123qwe@gmail.com</a>
     <div class="contact-links reveal">
       <a href="https://github.com/cmscms419" target="_blank" class="contact-link">GitHub <span>↗</span></a>
-      <a href="https://www.youtube.com/watch?v=gIBYzETzzbA" target="_blank" class="contact-link">YouTube <span>↗</span></a>
+      <a href="https://www.youtube.com/watch?v=gIBYzETzzbA" target="_blank" class="contact-link">YouTube
+        <span>↗</span></a>
     </div>
   </section>
 
@@ -450,4 +771,5 @@
     reveals.forEach(el => observer.observe(el));
   </script>
 </body>
+
 </html>
