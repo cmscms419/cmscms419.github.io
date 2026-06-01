@@ -64,15 +64,54 @@
       letter-spacing: 0.05em;
     }
 
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-pages {
+      display: flex;
+      gap: 0;
+      list-style: none;
+    }
+
+    .nav-pages a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .nav-pages a:hover { color: var(--black); }
+
+    .nav-pages a.active {
+      color: var(--white);
+      background: var(--black);
+      border-color: var(--black);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 1rem;
+      background: var(--gray-mid);
+      margin: 0 1.5rem;
+    }
+
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
       font-family: var(--mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--gray-dark);
       text-decoration: none;
       letter-spacing: 0.1em;
@@ -80,9 +119,7 @@
       transition: color 0.15s;
     }
 
-    .nav-links a:hover {
-      color: var(--black);
-    }
+    .nav-links a:hover { color: var(--black); }
 
     /* ── Hero ── */
     #hero {
@@ -632,6 +669,7 @@
         padding: 1rem 1.5rem;
       }
 
+      .nav-divider,
       .nav-links {
         display: none;
       }
@@ -672,15 +710,21 @@
 
   <nav>
     <a class="nav-logo" href="index.html">채민석</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Portfolio</a></li>
-      <li><a href="#summary">요약</a></li>
-      <li><a href="#career">경력</a></li>
-      <li><a href="#skills">기술</a></li>
-      <li><a href="#education">학력</a></li>
-      <li><a href="#side-projects">프로젝트</a></li>
-      <li><a href="career.html">경력기술서</a></li>
-    </ul>
+    <div class="nav-center">
+      <ul class="nav-pages">
+        <li><a href="index.html">포트폴리오</a></li>
+        <li><a href="resume.html" class="active">이력서</a></li>
+        <li><a href="career.html">경력기술서</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <ul class="nav-links">
+        <li><a href="#summary">요약</a></li>
+        <li><a href="#career">경력</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#education">학력</a></li>
+        <li><a href="#side-projects">프로젝트</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero -->
@@ -732,14 +776,16 @@
   <section id="summary">
     <div class="section-header reveal">
       <span class="section-num">01</span>
-      <h2 class="section-title">요약</h2>
+      <h2 class="section-title">소개</h2>
     </div>
     <p class="summary-text reveal">
-      그래픽스·실시간 시스템 개발 경험을 확장해온 <strong>3년차 개발자</strong>입니다.
-      자체 그래픽 엔진 기반의 제품 개발에 참여하며 <strong>데이터 변환 레이어 설계</strong>와
-      <strong>구조 설계</strong>에 집중해 왔습니다. 차량용 클러스터 GUI 개발에서 CAN 신호를 처리하는
-      위젯 시스템을 구현하고, 3D 데이터센터 시각화 POC에서 <strong>렌더링 성능을 약 2배 개선</strong>하는 등
-      성과 중심의 개발을 지향합니다.
+      GPU가 픽셀을 어떻게 그리는지, 렌더링 파이프라인이 실제로 어떻게 동작하는지를
+      <strong>직접 코드로 확인하며 이해하는 개발자</strong>입니다.<br><br>
+      3년간 자체 그래픽 엔진 위에서 차량용 GUI를 만들고,
+      Vulkan으로 PBR 파이프라인을 밑바닥부터 구현하고,
+      WebGPU로 3D 시각화 성능을 끌어올리면서 —
+      <strong>기술 스택이 바뀌어도 렌더링의 원리는 같다</strong>는 것을 배웠습니다.<br><br>
+      원리를 이해한 위에서 구조를 설계하고, 성능을 개선하는 일을 하고 싶습니다.
     </p>
   </section>
 

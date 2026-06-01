@@ -64,15 +64,56 @@
       letter-spacing: 0.05em;
     }
 
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-pages {
+      display: flex;
+      gap: 0;
+      list-style: none;
+    }
+
+    .nav-pages a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .nav-pages a:hover {
+      color: var(--black);
+    }
+
+    .nav-pages a.active {
+      color: var(--white);
+      background: var(--black);
+      border-color: var(--black);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 1rem;
+      background: var(--gray-mid);
+      margin: 0 1.5rem;
+    }
+
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
       font-family: var(--mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--gray-dark);
       text-decoration: none;
       letter-spacing: 0.1em;
@@ -499,6 +540,7 @@
         padding: 1rem 1.5rem;
       }
 
+      .nav-divider,
       .nav-links {
         display: none;
       }
@@ -544,12 +586,20 @@
 
   <nav>
     <a class="nav-logo" href="#hero">채민석</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-center">
+      <ul class="nav-pages">
+        <li><a href="index.html" class="active">포트폴리오</a></li>
+        <li><a href="resume.html">이력서</a></li>
+        <li><a href="career.html">경력기술서</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Hero -->
