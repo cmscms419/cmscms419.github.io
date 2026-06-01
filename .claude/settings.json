@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:\\\\Users\\\\alstj\\\\Documents\\\\Obsidian Vault\")",
+      "Read(//c/Users/alstj/Documents/Obsidian Vault/**)"
+    ]
+  }
+}

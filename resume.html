@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이력서 — 채민석</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --white: #ffffff;
+      --black: #0d0d0d;
+      --gray-light: #f4f4f4;
+      --gray-mid: #cccccc;
+      --gray-dark: #555555;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans KR', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--black);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--gray-dark);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 10rem 5rem 5rem;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gray-dark);
+      margin-bottom: 3rem;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid var(--black);
+    }
+
+    .contact-item {
+      flex: 1;
+      min-width: 200px;
+      padding: 1rem 1.5rem;
+      border-right: 1px solid var(--black);
+      border-bottom: 1px solid var(--black);
+    }
+
+    .contact-item:last-child {
+      border-right: none;
+    }
+
+    .contact-item-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--gray-mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item-value {
+      font-size: 0.88rem;
+      color: var(--black);
+    }
+
+    .contact-item-value a {
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-mid);
+      transition: border-color 0.15s;
+    }
+
+    .contact-item-value a:hover {
+      border-color: var(--black);
+    }
+
+    /* ── Section Commons ── */
+    section {
+      padding: 6rem 5rem;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-mid);
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Summary ── */
+    #summary {
+      background: var(--white);
+    }
+
+    .summary-text {
+      max-width: 720px;
+      color: var(--gray-dark);
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .summary-text strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* ── Career ── */
+    #career {
+      background: var(--gray-light);
+    }
+
+    .career-item {
+      border-top: 1px solid var(--black);
+      padding: 2.5rem 0;
+    }
+
+    .career-item:last-child {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .career-meta {
+      padding-top: 0.15rem;
+    }
+
+    .career-period {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gray-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .career-company {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .career-position {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .career-desc {
+      color: var(--gray-dark);
+      line-height: 1.9;
+      font-size: 0.9rem;
+    }
+
+    .career-desc li {
+      margin-left: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .career-desc li strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .career-aside {}
+
+    .career-stack-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stack-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--gray-mid);
+      color: var(--gray-dark);
+    }
+
+    .career-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--gray-mid);
+      padding-bottom: 0.4rem;
+      transition: border-color 0.15s;
+    }
+
+    .career-link:hover {
+      border-color: var(--black);
+    }
+
+    /* ── Skills ── */
+    #skills {
+      background: var(--white);
+    }
+
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .skills-table tr {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .skills-table tr:first-child {
+      border-top: 1px solid var(--black);
+    }
+
+    .skills-table td {
+      padding: 1.25rem 0;
+      vertical-align: top;
+    }
+
+    .skills-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      width: 220px;
+      padding-right: 2rem;
+      padding-top: 1.4rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skills-legend {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.05em;
+    }
+
+    .skill-item {
+      font-size: 0.88rem;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--black);
+      background: var(--white);
+    }
+
+    .skill-item.bold {
+      font-weight: 700;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ── Hero Stats ── */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--black);
+      border-left: 1px solid var(--black);
+      margin-top: 2.5rem;
+    }
+
+    .hero-stat {
+      padding: 1.5rem;
+      border-right: 1px solid var(--black);
+      border-bottom: 1px solid var(--black);
+    }
+
+    .hero-stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Education ── */
+    #education {
+      background: var(--gray-light);
+    }
+
+    .edu-item {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+      border-top: 1px solid var(--black);
+      padding: 2rem 0;
+    }
+
+    .edu-item:last-child {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .edu-period {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gray-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-school {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+
+    .edu-status {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      padding: 0.2rem 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    /* ── Side Projects ── */
+    #side-projects {
+      background: var(--white);
+    }
+
+    .sideproject-item {
+      border-top: 1px solid var(--black);
+      padding: 2rem 0;
+    }
+
+    .sideproject-item:last-child {
+      border-bottom: 1px solid var(--black);
+    }
+
+    .sideproject-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .sideproject-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .sideproject-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .sideproject-desc {
+      font-size: 0.88rem;
+      color: var(--gray-dark);
+      line-height: 1.9;
+    }
+
+    .sideproject-desc li {
+      margin-left: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .sideproject-desc li strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .sideproject-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--gray-mid);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+      transition: border-color 0.15s;
+    }
+
+    .sideproject-link:hover { border-color: var(--black); }
+
+    /* ── Certifications ── */
+    #certifications {
+      background: var(--gray-light);
+    }
+
+    .cert-placeholder {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--gray-mid);
+      border: 1px dashed var(--gray-mid);
+      padding: 1.5rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black);
+      color: #444;
+      padding: 1.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      border-top: 1px solid #222;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .print-btn {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid #444;
+      color: #aaa;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .print-btn:hover {
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Print ── */
+    @media print {
+      nav,
+      footer {
+        display: none;
+      }
+
+      #hero {
+        padding-top: 3rem;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      body {
+        font-size: 13px;
+      }
+
+      section {
+        padding: 3rem 2rem;
+        page-break-inside: avoid;
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      #hero {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .career-grid,
+      .edu-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-item {
+        border-right: none;
+      }
+
+      .skills-table td:first-child {
+        width: 140px;
+      }
+
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">채민석</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Portfolio</a></li>
+      <li><a href="#summary">요약</a></li>
+      <li><a href="#career">경력</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#education">학력</a></li>
+      <li><a href="#side-projects">프로젝트</a></li>
+      <li><a href="career.html">경력기술서</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div id="hero">
+    <div class="hero-tag reveal">Resume</div>
+    <h1 class="hero-name reveal">채민석</h1>
+    <p class="hero-title reveal">그래픽스 · 실시간 시스템 개발자</p>
+    <div class="hero-contact reveal">
+      <div class="contact-item">
+        <div class="contact-item-label">Phone</div>
+        <div class="contact-item-value">+82 10-2314-8273</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">
+          <a href="mailto:alstjr123qwe@gmail.com">alstjr123qwe@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Portfolio</div>
+        <div class="contact-item-value">
+          <a href="https://cmscms419.github.io" target="_blank">cmscms419.github.io</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">GitHub</div>
+        <div class="contact-item-value">
+          <a href="https://github.com/cmscms419" target="_blank">github.com/cmscms419</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3년 4개월</div>
+        <div class="hero-stat-label">실무 경력 (그래피카)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">30→60fps</div>
+        <div class="hero-stat-label">3D 렌더링 성능 개선 (약 2배)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">하루 이내</div>
+        <div class="hero-stat-label">차량 GUI 사양 변경 대응 기간</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 요약 -->
+  <section id="summary">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">요약</h2>
+    </div>
+    <p class="summary-text reveal">
+      그래픽스·실시간 시스템 개발 경험을 확장해온 <strong>3년차 개발자</strong>입니다.
+      자체 그래픽 엔진 기반의 제품 개발에 참여하며 <strong>데이터 변환 레이어 설계</strong>와
+      <strong>구조 설계</strong>에 집중해 왔습니다. 차량용 클러스터 GUI 개발에서 CAN 신호를 처리하는
+      위젯 시스템을 구현하고, 3D 데이터센터 시각화 POC에서 <strong>렌더링 성능을 약 2배 개선</strong>하는 등
+      성과 중심의 개발을 지향합니다.
+    </p>
+  </section>
+
+  <!-- 경력 -->
+  <section id="career">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">경력</h2>
+    </div>
+
+    <div class="career-item reveal">
+      <div class="career-grid">
+        <div class="career-meta">
+          <div class="career-period">2023.01 — 2026.04</div>
+          <div class="career-company">그래피카</div>
+          <div style="font-size:0.85rem; color:var(--gray-dark); margin-top:0.3rem;">Grapicar inc.</div>
+          <span class="career-position">정규직 · 3년 4개월</span>
+        </div>
+        <ul class="career-desc">
+          <li>자체 그래픽 엔진 코드베이스 분석 및 <strong>개발환경 구축 가이드</strong> 작성</li>
+          <li>그래픽 엔진 기반 차량 전시용 <strong>3D 인터랙티브 데모</strong> 개발</li>
+          <li><strong>VP Demo Car</strong> 차량 클러스터 GUI 개발 — CAN 신호 50~80개 처리</li>
+          <li>모비젠 AIDC POC — <strong>3D 데이터센터 시각화</strong>, 30fps → 55~60fps 성능 개선</li>
+        </ul>
+        <div class="career-aside">
+          <div class="career-stack-label">주요 기술</div>
+          <div class="stack-tags">
+            <span class="stack-tag">C</span>
+            <span class="stack-tag">C++</span>
+            <span class="stack-tag">CMake</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">Three.js</span>
+            <span class="stack-tag">React Three Fiber</span>
+            <span class="stack-tag">OpenGL ES 3.0</span>
+          </div>
+          <a href="career.html" class="career-link">경력기술서 보기 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기술 스택 -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">기술 스택</h2>
+    </div>
+    <div class="skills-legend reveal">
+      <span class="legend-item"><span class="skill-item bold" style="pointer-events:none;">실무</span> 실제 프로젝트에서 사용</span>
+      <span class="legend-item"><span class="skill-item" style="pointer-events:none;">개인</span> 개인 프로젝트에서 사용</span>
+    </div>
+    <table class="skills-table reveal">
+      <tr>
+        <td>Language</td>
+        <td>
+          <div class="skill-list">
+            <span class="skill-item bold">C++</span>
+            <span class="skill-item bold">C</span>
+            <span class="skill-item bold">TypeScript</span>
+            <span class="skill-item bold">JavaScript</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Graphics</td>
+        <td>
+          <div class="skill-list">
+            <span class="skill-item bold">Three.js</span>
+            <span class="skill-item">OpenGL ES 3.0</span>
+            <span class="skill-item">Vulkan</span>
+            <span class="skill-item">WebGPU</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Frontend</td>
+        <td>
+          <div class="skill-list">
+            <span class="skill-item bold">React</span>
+            <span class="skill-item bold">React Three Fiber</span>
+            <span class="skill-item bold">Vite</span>
+            <span class="skill-item bold">Jotai</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Build / Tools</td>
+        <td>
+          <div class="skill-list">
+            <span class="skill-item bold">CMake</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Rendering</td>
+        <td>
+          <div class="skill-list">
+            <span class="skill-item">3D 렌더링</span>
+            <span class="skill-item">Instancing</span>
+            <span class="skill-item">Custom Shader</span>
+            <span class="skill-item">트윈 애니메이션</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- 학력 -->
+  <section id="education">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">학력</h2>
+    </div>
+    <div class="edu-item reveal">
+      <div>
+        <div class="edu-period">2017.03 — 2023.08</div>
+      </div>
+      <div>
+        <div class="edu-school">한신대학교</div>
+        <div class="edu-degree">컴퓨터공학과</div>
+        <span class="edu-status">졸업</span>
+      </div>
+      <div></div>
+    </div>
+  </section>
+
+  <!-- 개인 프로젝트 -->
+  <section id="side-projects">
+    <div class="section-header reveal">
+      <span class="section-num">05</span>
+      <h2 class="section-title">개인 프로젝트</h2>
+    </div>
+
+    <div class="sideproject-item reveal">
+      <div class="sideproject-grid">
+        <div>
+          <div class="sideproject-title">vulkanMakeSomething</div>
+          <div class="sideproject-stack">
+            <span class="stack-tag">C++</span>
+            <span class="stack-tag">Vulkan</span>
+            <span class="stack-tag">GLSL</span>
+            <span class="stack-tag">SPIR-V</span>
+            <span class="stack-tag">ImGui</span>
+          </div>
+        </div>
+        <ul class="sideproject-desc">
+          <li>Vulkan SDK로 <strong>렌더링 파이프라인 밑바닥부터</strong> 직접 구현</li>
+          <li><strong>PBR / IBL</strong>(Image-Based Lighting) 구현</li>
+          <li>Skymap, TextureArray, 3D 모델(GLTF) 로드, Compute Shader 실습</li>
+        </ul>
+        <div>
+          <a href="https://github.com/cmscms419/vulkanMakeSomething" target="_blank" class="sideproject-link">GitHub <span>↗</span></a>
+          <a href="https://youtu.be/4Do3bLrJ0n8?si=IDLKgta8BhxfhYTi" target="_blank" class="sideproject-link">YouTube 데모 <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sideproject-item reveal">
+      <div class="sideproject-grid">
+        <div>
+          <div class="sideproject-title">gsViewer</div>
+          <div class="sideproject-stack">
+            <span class="stack-tag">TypeScript</span>
+            <span class="stack-tag">WebGPU</span>
+            <span class="stack-tag">WebGL2</span>
+            <span class="stack-tag">WGSL</span>
+            <span class="stack-tag">Three.js</span>
+          </div>
+        </div>
+        <ul class="sideproject-desc">
+          <li>브라우저에서 <strong>3D Gaussian Splatting</strong> 실시간 렌더링</li>
+          <li><strong>WebGPU Compute Shader</strong>(WGSL)로 GPU 깊이 연산, 4-pass Radix Sort</li>
+          <li>WebGPU 미지원 환경 → CPU 자동 fallback</li>
+        </ul>
+        <div>
+          <a href="https://github.com/cmscms419/gsViewer" target="_blank" class="sideproject-link">GitHub <span>↗</span></a>
+          <a href="https://cmscms419-gsviewer.vercel.app/" target="_blank" class="sideproject-link">Live Demo <span>↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 자격증 -->
+  <section id="certifications">
+    <div class="section-header reveal">
+      <span class="section-num">06</span>
+      <h2 class="section-title">자격증</h2>
+    </div>
+    <div class="cert-placeholder reveal">
+      자격증 정보를 여기에 추가하세요
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 채민석</span>
+    <div class="footer-links">
+      <a href="index.html">Portfolio</a>
+      <a href="career.html">경력기술서</a>
+    </div>
+    <button class="print-btn" onclick="window.print()">Print / PDF</button>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      });
+    }, { threshold: 0.06 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
